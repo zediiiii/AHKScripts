@@ -1,0 +1,109 @@
+MsgBox, 0, Clipboard Extension Instructions, Select the text you'd like to copy into your extended clipboard. Press control and a number simultaneously to copy that text (text only). Press alt and the same number to paste that text. Make sure to exit the program from the windows tray when finished, or press F9 to exit.
+
+
+^1::
+clipboard =  ;
+Send ^c
+ClipWait
+Clip1 := clipboard
+return
+
+!1::
+clipboard = %Clip1%
+Send ^v
+return
+
+^2::
+Send ^c
+ClipWait
+Clip2 := clipboard
+return
+!2::
+clipboard := Clip2
+Send ^v
+return
+
+^3::
+Send ^c
+ClipWait
+Clip3 := clipboard
+return
+!3::
+clipboard := Clip3
+Send ^v
+return
+
+^4::
+Send ^c
+ClipWait
+Clip4 := clipboard
+return
+!4::
+clipboard := Clip4
+Send ^v
+return
+
+^5::
+Send ^c
+ClipWait
+Clip5 := clipboard
+return
+!5::
+clipboard := Clip5
+Send ^v
+return
+
+^6::
+Send ^c
+ClipWait
+Clip6 := clipboard
+return
+!6::
+clipboard := Clip6
+Send ^v
+return
+
+^7::
+Send ^c
+ClipWait
+Clip7 := clipboard
+return
+!7::
+clipboard := Clip7
+Send ^v
+return
+
+^8::
+Send ^c
+ClipWait
+Clip8 := clipboard
+return
+!8::
+clipboard := Clip8
+Send ^v
+return
+
+^9::
+Send ^c
+ClipWait
+Clip9 := clipboard
+return
+!9::
+clipboard := Clip9
+Send ^v
+return
+
+^0::
+Send ^c
+ClipWait
+Clip0 := clipboard
+return
+!0::
+clipboard := Clip0
+Send ^v
+return
+
+
+F9::
+ExitApp
+Return
