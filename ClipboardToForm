@@ -1,0 +1,47 @@
+MsgBox, 0, Gradebook Copier Instructions, Copy the column of scores you want to enter to your clipboard - click on the first cell where you want to enter data - choose your copy speed (slower is safer but faster is faster!) press F8 to begin copying - press F9 to cancel mid copy - press escape to quit.
+
+Gui, Add, Radio, gCheck vRadioGroup1, Very Fast Speed (10ms)
+Gui, Add, Radio, gCheck vRadioGroup2, Fast Speed (25ms)
+Gui, Add, Radio, gCheck vRadioGroup3, Medium Speed (45ms)
+Gui, Add, Radio, gCheck vRadioGroup4, Slow Speed (100ms)
+Gui, Add, Radio, gCheck vRadioGroup5, Very Slow Speed (200ms)
+Gui, Show
+
+
+Check:
+Gui, Submit, NoHide
+if (RadioGroup1){
+	RadioGroup := 10
+}
+if (RadioGroup2){
+	RadioGroup := 20
+}
+if (RadioGroup3){
+	RadioGroup := 30
+}
+if (RadioGroup4){
+	RadioGroup := 50
+}
+if (RadioGroup5){
+	RadioGroup := 100
+}
+
+
+F8::
+Sleep %RadioGroup%
+Loop, parse, clipboard, `n, `r
+{
+ SendRaw, %A_LoopField%
+ Sleep %RadioGroup%
+ Send, {down}
+ Sleep %RadioGroup%
+}
+return
+
+Escape::
+ExitApp
+Return
+
+F9::
+Return
+
